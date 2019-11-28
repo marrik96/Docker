@@ -1,2 +1,2 @@
-# kubernetes
-Kubernetes deployment files
+# Docker
+Docker deployment files and other scripts
