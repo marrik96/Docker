@@ -1,0 +1,21 @@
+version: '3.0'
+services:
+  vault:
+    image: vault
+    restart: always
+    container_name: vault
+    ports:
+      - 8200:8200
+    networks:
+      - vault_net
+    restart: always
+    volumes:
+      - "/docker/vault/logs:/vault/logs"
+      - "/docker/vault/file:/vault/file"
+      - "/docker/vault/config:/vault/config"
+    cap_add:
+      - IPC_LOCK
+    entrypoint: vault server -config=/vault/config/vault.json
+
+networks:
+  vault_net:
