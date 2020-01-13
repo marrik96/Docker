@@ -1,0 +1,29 @@
+version: '3.1'
+services:
+  ubuntu:
+    image: ubuntu:$UBUNTU_VERSION
+    entrypoint: /bin/bash
+    dns:
+      - 10.4.4.44
+      - 10.4.4.84
+    dns_search: datawan.net
+    ports:
+      - "22:2222"
+    networks:
+      - ubuntu_net
+    volumes:
+      - lx-logs:/var/log/syslog
+      - lx-data:/root
+    container_name: ubuntu
+    restart: always
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 3s
+        max_attempts: 3
+        window: 120s
+networks:
+  ubuntu_net:
+volumes:
+  lx-logs:
+  lx-data:
