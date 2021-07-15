@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  pwsh:
+    build: .
+    image: marrik96/check-ups
+    dns:
+      - 10.4.4.74
+      - 10.4.4.84
+    dns_search: ad.datawan.net
+    networks:
+      - pwsh_checkups_net
+    volumes:
+      - /docker/pwsh/check-ups/logs:/var/log
+      - /docker/pwsh/check-ups/data:/home
+      - /docker/pwsh/check-ups/ssl:/ssl
+    container_name: check-ups
+networks:
+  pwsh_checkups_net:
