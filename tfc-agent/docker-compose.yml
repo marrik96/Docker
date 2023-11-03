@@ -2,6 +2,6 @@ version: '3.3'
 services:
     tfc-agent:
         environment:
-            - TFC_AGENT_TOKEN=jcpEaO5dkBW50Q.atlasv1.NBvwCSSxr4y2X0Ew9fusbXWT08myzJmdKaNavwquTHyrsWGI9G9NOfLJl6WWqoOT3Hg
+            - TFC_AGENT_TOKEN=SECRET-TOKEN-HERE
             - TFC_AGENT_NAME=qco-pd-token
         image: hashicorp/tfc-agent
