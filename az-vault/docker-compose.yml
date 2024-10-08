@@ -1,0 +1,30 @@
+
+version: '3.9'
+services:
+  vault:
+    image: vault
+    logging:
+      driver: none
+    restart: always
+    container_name: vault
+    ports:
+      - 8200:8200
+    networks:
+      - vault_net
+    volumes:
+      - "fsefileshare/docker/vault/logs:/vault/logs"
+      - "fsefileshare/docker/vault/file:/vault/file"
+      - "fsefileshare/docker/vault/config:/vault/config"
+    cap_add:
+      - IPC_LOCK
+    entrypoint: vault server -config=/vault/config/vault.json
+
+networks:
+  vault_net:
+
+volumes:
+  fse_data:
+    driver: azure_file
+    driver_opts:
+      share_name: fsefileshare
+      storage_account_name: fsestorageaccount
