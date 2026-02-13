@@ -1,6 +1,3 @@
-Here is a complete documentation file for your Home Lab setup. You can save this as `README.md` in your `~/docker` folder for future reference.
-
-```markdown
 # Dell Home Lab Documentation
 
 **Server:** Dell PowerEdge R310 (11th Gen)  
