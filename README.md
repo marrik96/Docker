@@ -13,13 +13,12 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **nvme0n1** | FireCuda NVMe | 1TB | PCIe Adapter | **Fast Storage:** OS Boot + Docker Images/Containers |
 | **sda** | SATA HDD | 3TB | PERC H200/700 | **Bulk Storage:** Backups & ISOs |
-| **USB** | Flash Drive | 8GB | Internal/Rear | **Bootloader:** Chainloads NVMe (R310 cannot boot NVMe natively) |
 
 ### Mount Points & Filesystem
 | Path | Device | Filesystem | Description |
 | :--- | :--- | :--- | :--- |
 | `/` | `/dev/sda3` (LVM) | ext4 | **OS Root.** ~2.6TB available. Used for OS logs/configs. |
-| `/mnt/nvme` | `/dev/nvme0n1p1` | ext4 | **High Speed Data.** Manual mount for Docker data. |
+| `/mnt/nvme` | `/dev/nvme0n1` | ext4 | **High Speed Data.** Manual mount for Docker data. |
 | `/mnt/backups` | `/dev/sda` (Folder) | ext4 | **Bulk Data.** Directory on the 3TB drive for MinIO storage. |
 
 **fstab Configuration (`/etc/fstab`):**
